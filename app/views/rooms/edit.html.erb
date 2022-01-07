@@ -1,2 +1,29 @@
-<h1>Rooms#edit</h1>
-<p>Find me in app/views/rooms/edit.html.erb</p>
+<h1>ルーム情報編集</h1>
+
+<%= form_with model: @room do |f| %>
+  <table class = "room_registration">
+    <tr>
+      <th><%= f.label :room_name, "ルーム名" %><p class ="required">必須</p></th>
+      <td><%= f.text_field :room_name, placeholder: "ルーム名を入力" %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :room_introduction, "ルーム紹介" %><p class ="required">必須</p></th>
+      <td><%= f.text_area :room_introduction, placeholder: "ルームの紹介文を入力" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :price, "料金" %><p class ="required">必須</p></th>
+      <td><%= f.text_field :price, placeholder: "１日あたりの料金を入力"%></td>
+    </tr>
+    <tr>
+      <th><%= f.label :address, "住所" %><p class ="required">必須</p></th>
+      <td><%= f.text_field :address, placeholder: "住所を入力" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :room_image, "ルーム画像" %><p class ="required">必須</p></th>
+      <td><%= f.attachment_field :room_image %></td>
+    </tr>
+  </table>
+    
+    <%= f.submit "編集完了"%>
+<% end %>

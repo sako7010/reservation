@@ -11,30 +11,42 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="notification">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% end %>
-    
-    <% if flash[:alert] %>
-      <div class="notification">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>  
-
-    <header>
-      <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title">旅の宿</h1>
+    <div class = "wrapper">
+      <% if flash[:notice] %>
+        <div class="notification">
+          <p class="notice"><%= notice %></p>
+        </div>
       <% end %>
       
-      <% if user_signed_in? %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_button" %>
-      <% else %>  
-        <%= link_to "ログイン", new_user_session_path, class: "nav_button" %>
-        <%= link_to "新規登録", new_user_registration_path, class: "nav_button" %>
-      <% end %>
-    </header>
-    <%= yield %>
+      <% if flash[:alert] %>
+        <div class="notification">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>  
+
+      <header>
+        <%= link_to root_path, class: "navbar-title" do %>
+          <h1 class= "title" >旅の宿</h1>
+        <% end %>
+        
+        <div class = "menu">
+          <% if user_signed_in? %>
+            <ul class = "menu-ul">
+              <li class = "menu-li" ><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout_btn" %> </li>
+            </ul>
+          <% else %> 
+            <ul class = "menu-ul">
+              <li class = "menu-li"><%= link_to "ログイン", new_user_session_path, class: "login_btn" %></li>
+              <li class = "menu-li"><%= link_to "新規登録", new_user_registration_path, class: "new_btn" %></li>
+            </ul>
+          <% end %>
+        </div>
+      </header>
+      <%= yield %>
+
+      <footer>
+        <p class="footer_letter">© 2022 sako.INC.</p>
+      </footer>
+    </div>
   </body>
 </html>
