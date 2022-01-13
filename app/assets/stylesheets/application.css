@@ -4,6 +4,7 @@
   padding-bottom: 60px;
   box-sizing: border-box;
   min-height: 100vh;
+  /*要修正*/
 }
 
 header{
@@ -23,13 +24,13 @@ header{
   margin-left: 30px;
 }
 
-.login_btn{
+.menu_btn{
   color: #fff;
   font-size: medium;
   margin-right: 15px;
   padding: 13px;
   border-radius: 5px;
-  background-color: coral;
+  background-color: darksalmon;
   text-decoration: none;
 
 }
@@ -127,14 +128,31 @@ footer{
 }
 
 /*部屋詳細*/
+.container_room{
+  display: flex;
+  margin-top: 10px;
+}
+
 .room_show{
   max-width: 60vw;
   padding: 30px 60px;
 }
 .show_img{
-  width: auto;
+  width: 700px;
 }
 
 .room_name_add,.room_intro{
   border-bottom: 1px #000000 solid;
 }
+
+/*予約関係*/
+.booking_new{
+  padding: 10px 10px;
+}
+
+.booking-table{
+  text-align: center; 
+  box-shadow: aqua;
+  height: min-content;
+  margin-top: 50px;
+ }

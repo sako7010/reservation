@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :rooms, dependent: :destroy
   
   attachment :profile_image
+
+  has_many :booking, dependent: :destroy
+
 end

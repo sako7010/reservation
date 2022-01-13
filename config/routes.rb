@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :rooms
+  resources :bookings do
+    collection do 
+      get "confirm"
+    end
+  end
 end

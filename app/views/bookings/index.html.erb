@@ -1,0 +1,33 @@
+<div class = "room-posts">
+  <h1>予約済みルーム一覧</h1>
+
+  <table class = "room-table">
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>合計料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <% if booking.user_id == current_user.id %> 
+          <tr>
+            <td><%= attachment_image_tag booking.room, :room_image, class:"room-img"%></td>
+            <td><%= booking.room.room_name %></td>
+            <td><%= booking.room.room_introduction %></td>
+            <td>¥<%= booking.total_amount %>-</td>
+            <td><%= booking.start_day.strftime("%Y年%m月%d日") %></td>
+            <td><%= booking.end_day.strftime("%Y年%m月%d日") %></td>
+            <td><%= booking.updated_at.strftime("%Y年%m月%d日") %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>  
+  </table>
+          
+</div>

@@ -1,10 +1,15 @@
 class RoomsController < ApplicationController
   def index
+    @user = current_user
     @rooms = Room.all
   end
 
   def show
+    @user = current_user
     @room = Room.find(params[:id])
+    @room.user_id = current_user
+    @booking = Booking.new
+    @booking.room_id = @room.id 
   end
 
   def new

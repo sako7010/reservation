@@ -32,7 +32,11 @@
         <div class = "menu">
           <% if user_signed_in? %>
             <ul class = "menu-ul">
-              <li class = "menu-li" ><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout_btn" %> </li>
+              <li class = "menu-li" ><%= link_to "部屋を登録", new_room_path, class:"menu_btn" %></li>
+              <li class = "menu-li" ><%= link_to "登録した部屋一覧", rooms_path, class:"menu_btn" %></li>
+              <li class = "menu-li" ><%= link_to "予約済み一覧", bookings_path, class:"menu_btn"  %></li>
+              <li class = "menu-li" ><%#= link_to "ユーザー詳細",  users_show_path, class:"nonline" %></li>
+              <li class = "menu-li" ><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu_btn" %> </li>
             </ul>
           <% else %> 
             <ul class = "menu-ul">

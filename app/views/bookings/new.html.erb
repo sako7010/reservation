@@ -1,0 +1,23 @@
+<div class = "booking-container">
+  <h2>予約内容確認</h2>
+  <div class = "booking_confirm">
+  
+
+  <%= form_with model: @booking do |f| %>
+    <div class = "room_booking">
+      <%= f.label :start_day, "開始日" %>
+      <%= f.text_field :start_day, :readonly => true %>
+    <br>
+      <%= f.label :end_day, "終了日" %>
+      <%= f.text_field :end_day, :readonly => true %>
+    <br>
+      <p>人数:<%= f.number_field :people, :readonly => true %>名</p>    
+      <p>合計料金:<%= f.number_field :total_price, :readonly => true %>円</p>
+      <%= f.submit "予約を確定する" %>
+    </div>
+
+  <% end %>
+
+
+</div>
+

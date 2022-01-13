@@ -1,0 +1,33 @@
+<div class = "booking-container">
+  <h2>予約内容確認</h2>
+  <div class = "booking_confirm">
+    <div class = "room_booking">
+      <dl>
+          <dt>チェックイン</dt>
+          <dd><%= @booking.start_day %></dd>
+          <dt>チェックアウト</dt>
+          <dd><%= @booking.end_day %></dd>
+          <dt>宿泊人数</dt>
+          <dd><%= @booking.people %>人</dd>
+          <dt>宿泊日数</dt>
+          <dd><%= @booking.total_day %>日間</dd>
+          <dt>合計金額</dt>
+          <dd><%= @booking.total_amount %>円</dd>
+      </dl>
+    </div>
+  
+        
+  
+    <%= form_with model: @booking, method: :get, url: booking_path(@booking) do |f| %>
+      <%= f.hidden_field :start_day, value:@booking.start_day %>
+      <%= f.hidden_field :end_day, value:@booking.end_day  %>
+      <%= f.hidden_field :people, value:@booking.people %>
+      <%= f.hidden_field :room_id , value: @booking.room_id%>
+      <%= f.hidden_field :user_id, value: current_user.id  %>
+      <%= f.hidden_field :total_day, value:@booking.total_day %>
+      <%= f.hidden_field :total_amount, value:@booking.total_amount %>
+      <%= f.submit "予約を確定する" %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+<div class = "booking-container">
+  <h2>予約完了しました</h2>
+  <div class = "booking_confirm">
+    <div class = "room_booking">
+      <dl>
+          <dt>予約した部屋</dt>
+          <dd><%= @booking.room.room_name%></dd>
+          <dt>チェックイン</dt>
+          <dd><%= @booking.start_day %></dd>
+          <dt>チェックアウト</dt>
+          <dd><%= @booking.end_day %></dd>
+          <dt>合計金額</dt>
+          <dd><%= @booking.total_amount %>円</dd>
+      </dl>
+    </div>
