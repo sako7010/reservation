@@ -1,0 +1,21 @@
+<%= render 'shared/user-link' %>
+
+<%= form_with model: @user do |f| %>
+  <table class = "user_profile">
+    <tr>
+      <%= attachment_image_tag @user,:profile_image, class:"profile-img" %>
+      <th><%= f.label :profile_image, "アイコン画像" %><p class ="required">必須</p></th>
+      <td><%= f.attachment_field :profile_image %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :user_name, "ユーザー名" %><p class ="required">必須</p></th>
+      <td><%= f.text_field :user_name, placeholder: "ユーザー名" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :profile, "自己紹介" %><p class ="required">必須</p></th>
+      <td><%= f.text_area :profile, placeholder: "自己紹介を入力" %></td>
+    </tr>
+  </table>
+    <%= f.submit "更新"%>
+<% end %>
+
