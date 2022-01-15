@@ -1,0 +1,12 @@
+<h1>検索結果</h1>
+    <% @results.each do |room| %>
+      <tr>
+        <td><%= attachment_image_tag room,:room_image, class:"room-img" %></td>
+        <td><%= room.room_name %></td>
+        <td><%= room.address %></td>
+        <td><%= room.price %></td>
+      </tr>
+    <% end %>
+
+
+<%= link_to 'Top', users_path %>

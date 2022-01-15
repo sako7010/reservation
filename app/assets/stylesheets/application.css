@@ -77,6 +77,16 @@ footer{
   margin-top: 70px;
 }
 
+/*ホーム画面*/
+.osusume_img{
+  width: 231px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px
+}
+
+
 /*新規登録画面*/
 .new-table{
  text-align: center; 

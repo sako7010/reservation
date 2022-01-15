@@ -1,4 +1,29 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class = "home_top">
 
+    <%= search_form_for @q, url: search_rooms_path do |f| %>
+      <%= f.label :address_cont, 'エリア' %>
+      <%= f.search_field :address_cont %>
+      <%= f.submit '探す' %>
+    <% end %>
+</div>
+
+<h1>おすすめのエリア</h1>
+	  <div class="area_page">
+		  <span>東京</span>
+      <%= link_to search_rooms_path(q: {address_cont: "東京都"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg', class:"osusume_img" %>
+      <% end %>
+		  <span>大阪</span>
+      <%= link_to search_rooms_path(q: {address_cont: "大阪府"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg', class:"osusume_img" %>
+      <% end %>
+		  <span>京都</span>
+      <%= link_to search_rooms_path(q: {address_cont: "京都府"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg', class:"osusume_img" %>
+      <% end %>
+		  <span>札幌</span>
+      <%= link_to search_rooms_path(q: {address_cont: "札幌市"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg', class:"osusume_img" %>
+      <% end %>
+		</div>
 

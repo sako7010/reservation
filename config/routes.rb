@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       get "profile"
     end
   end
-  resources :rooms
+  resources :rooms do
+    collection do
+      get "search"
+    end
+  end
   resources :bookings do
     collection do 
       get "confirm"
