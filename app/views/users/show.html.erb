@@ -1,22 +1,69 @@
-<%= render 'shared/user-link' %>
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "col-lg-2">
+      <p><%= render 'shared/user-link' %></p>
+    </div>
 
-  <table class="user_detail">
-    <tr>
-	    <th>ユーザー名</th>
-	    <td><%= @user.user_name %></td>
-    </tr>
-    <tr>
-	    <th>メールアドレス</th>
-	    <td><%= @user.email %></td>
-    </tr>
-    <tr>
-	    <th>自己紹介</th>
-	    <td><%= @user.profile %></td>
-    </tr>
-    <tr>
-	    <th>パスワード</th>
-	    <td>*********</td>
-    </tr>
-  </table>
-    <%= link_to "編集", edit_user_registration_path, class: "link_btn" %>
+    <div class = "col-lg-8">
+      <div class = "profile border">
+        <h3 class= "field mb-4 mt-3" >登録内容</h3><hr>
+          <div class = "row field-mb-3 ml-3">
+            <label class = "mb-3 col-md-3 font-weight-bold">ユーザー名</label>
+            <p class = "mb-3 col-md-9"><%= @user.user_name %></p>
+          </div>
+          <div class = "row field-mb-3 ml-3">
+            <label class = "mb-3 col-md-3 font-weight-bold">メールアドレス</label>
+            <p class = "mb-3 col-md-9"><%= @user.email %></p>
+          </div>
+          <div class = "row field-mb-3 ml-3">
+            <label class = "mb-3 col-md-3 font-weight-bold">自己紹介</label>
+            <p class = "mb-3 col-md-9"><%= @user.profile %></p>
+          </div>
+          <div class = "row field-mb-3 ml-3">
+            <label class = "mb-3 col-md-3 font-weight-bold">パスワード</label>
+            <p class = "mb-3 col-md-9">*********</p>
+          </div>
+          <div class = "row field-mb-3 ml-2">
+            <label class = "mb-3 col-md-3 font-weight-bold"><%= link_to "編集", edit_user_registration_path, class: "btn btn-primary ml-3" %></label>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<!--
+
+
+<div class = "container-fluid account">  
+  <div class = "row">
+    <div class = "col-lg-4 border-right mt-4 px-3">
+      <div> 
+        <%= render 'shared/user-link' %>  
+      </div>
+    </div>
+
+
+    <div class = "col-lg-8 mx-5 p-5 border" >
+      <h3 class= "field mb-4" >登録内容</h3><hr>
+      <div class = "field-mb-3">
+        ユーザー名
+        <%= @user.user_name %>
+      </div>
+      <div class = "field-mb-3">
+        メールアドレス
+        <%= @user.email %>
+      </div>
+      <div class = "field-mb-3">
+        自己紹介
+        <%= @user.profile %>
+      </div>
+      <div class = "field-mb-3">
+        パスワード
+        *********
+      </div>
+        <%= link_to "編集", edit_user_registration_path, class: "link_btn" %>
+    </div>  
+  </div>
+</div>
+-->

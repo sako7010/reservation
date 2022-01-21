@@ -1,34 +1,36 @@
-<div class = "wrapper">
-  <div class = "room-posts">
-    <h1>登録済みルーム一覧</h1>
+<div class = "container-fluid">
+  <div class = "room-posts m-4">
+    <h1 class = "pb-2">登録済みルーム一覧</h1>
 
-    <table class = "room-table">
-      <thead>
-        <tr>
-          <th>ルーム画像</th>
-          <th>ルーム名</th>
-          <th>ルーム紹介</th>
-          <th>料金</th>
-          <th>作成日</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @rooms.each do |room| %>
-          <% if room.user_id == current_user.id %>  
-            <tr>
-              <td>
-                <%= link_to room_path(room) do %>
-                  <%= attachment_image_tag room,:room_image, class:"room-img" %>
-                <% end %>
-              </td>
-              <td><%= link_to room.room_name , room_path(room) %></td>
-              <td><%= room.room_introduction %></td>
-              <td>¥<%= room.price %>-</td>
-              <td><%= room.updated_at.strftime("%Y年%m月%d日") %></td>
-            </tr>
+      <table class = "room-table border-top mx-3">
+        <thead>
+          <tr class = "border-bottom">
+            <th class = "col-3 text-center py-2">ルーム画像</th>
+            <th class = "col-2 text-center py-2">ルーム名</th>
+            <th class = "col-3 text-center py-2">ルーム紹介</th>
+            <th class = "col-2 text-center py-2">料金</th>
+            <th class = "col-2 text-center py-2">作成日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rooms.each do |room| %>
+            <% if room.user_id == current_user.id %>  
+              <tr class = "border-bottom  py-2">
+                <div>
+                  <td class = "p-2 text-center">
+                    <%= link_to room_path(room) do %>
+                      <%= attachment_image_tag room,:room_image, class:"room-img-reg" %>
+                    <% end %>
+                  </td>
+                  <td class = "px-2 text-center"><%= link_to room.room_name , room_path(room) %></td>
+                  <td class = "px-2 text-wrap"><%= room.room_introduction %></td>
+                  <td class = "px-2 text-center">¥<%= room.price %>-</td>
+                  <td class = "px-2 text-center"><%= room.updated_at.strftime("%Y年%m月%d日") %></td>
+                </div>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
-      </tbody>  
-    </table>
+        </tbody>  
+      </table>
   </div>
 </div>

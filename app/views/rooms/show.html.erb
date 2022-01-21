@@ -1,58 +1,56 @@
-<div class = "wrapper"> 
- <div class = container_room> 
-    <div class = "room_show">
-      <div class = image >
+<div class = "container"> 
+  <div class = "row"> 
+    <div class = "col-md-8 mt-4 px-3">
+      <div class = "image" >
         <%= attachment_image_tag @room, :room_image,class:"show_img" %>
       </div>
 
-      <div class = "show_list">
+      <div class = "show_list border-bottom py-3 d-flex flex-row">
         <div class = "user_info" >
-          a
-          <%#登録したユーザー名表示%>
-          <%= @room.user_id == current_user.id %>
+          <%= attachment_image_tag @user,:profile_image, class:"profile-img mt-2 ml-2" %>
         </div>
-        <div class = "room_name_add">
-          <%= @room.room_name %>
-          <%= @room.address %>
-        </div>
-        <div class = "room_intro">
-          <%= simple_format @room.room_introduction %>
+        <div class = "room_name_add pl-3">
+          <p class = "font-weight-bold"><%= @room.room_name %></p><br>
+          <p><%= @room.address %></p>
         </div>
       </div>
-
-      <%#登録したユーザーのみ編集ボタン表示%>
-      <%# if @room.user.id == current_user.id %>
-        <%= link_to "編集", edit_room_path(@room) , class: "show_button" %>
-      <%# end %>
+      <div class = "room_intro border-bottom py-3">
+        <%= simple_format @room.room_introduction %>
+      </div>
     </div>
-
-    <div class = "booking_new">
-      <p>部屋予約</p>
-      <%= form_with model: @booking, url: confirm_bookings_path, method: :get ,local: true do |f| %>
-        <table class = "room_booking">
-          <tr>
-            <th>料金</th>
-            <td>¥<%= @room.price %> /日</td>
-          </tr>
-          <tr>
-            <th><%= f.label :start_day, "開始日" %></th>
-            <td><%= f.date_field :start_day %></td>
-          </tr>
-          <tr>
-            <th><%= f.label :end_day, "終了日" %></th>
-            <td><%= f.date_field :end_day %></td>
-          </tr>
-          <tr>
-            <th><%= f.label :people, "人数" %></th>
-            <td><%= f.number_field :people, placeholder: "人数を入力"%></td>
-          </tr>
-        </table>
-        <%= f.hidden_field :room_id, value: @room.id %>
-        <div class = "booking_btn">
-          <%= f.submit "予約"%>
-          <%= link_to "一覧に戻る", rooms_path(@room) , class: "show_button" %>
-        </div>
-      <% end %>
+    <%#予約%>
+    <div class = "col-md-4 mt-4">
+      <div class = "px-2 border">
+        <p class = "text-center mt-2 field">部屋予約</p>
+        <%= form_with model: @booking, url: confirm_bookings_path, method: :get ,local: true do |f| %>
+          <div class = "form-group">
+            <label>料金:</label>
+            ¥<%= @room.price %> /日
+          </div>  
+          <div class = "form-group">
+            <label>チェックイン</label>
+            <%= f.date_field :start_day ,class: "form-control field mb-3" %>
+          </div>  
+          <div class = "form-group">
+            <label>チェックアウト</label>
+            <%= f.date_field :end_day ,class: "form-control field mb-3" %>
+          </div>
+          <div class = "form-group">
+            <label>人数</label>
+            <%= f.number_field :people, placeholder: "人数を入力" ,class: "form-control field mb-3" %>
+            <hr>
+          </div>
+            <%= f.hidden_field :room_id, value: @room.id %>
+          <% if user_signed_in? %>
+            <div class = "form-group">  
+              <%= f.submit "予約" , class:"btn btn-primary form-control field mb-3"%>
+              <%= link_to "一覧に戻る", rooms_path(@room) , class: "btn btn-info form-control field mb-3" %>
+            </div>
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-danger form-control field mb-3" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>  
   </div>  
 </div>
