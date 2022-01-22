@@ -1,5 +1,5 @@
 <div class = "container-fluid">
-  <h1 class = "my-4 mx-5">検索結果:<%= Room.count %>件</h1>
+  <h1 class = "my-4 mx-5">検索結果:<%= @results.count %>件</h1>
   <div class = "row m-3 p-3">
     <% @results.each do |room| %>
       <div class = "col-sm-6 col-lg-4 col-xl-3 p-3">
