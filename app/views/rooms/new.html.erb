@@ -2,6 +2,7 @@
   <div class = "container d-flex align-items-center justify-content-center">  
     <div class = "mx-20 p-5 border" style= "with: 500px;" >
       <h3 class= "field mb-4" >ルーム情報登録</h3>
+      <%= render 'shared/error' , obj:@room%>
 
       <%= form_with model: @room do |f| %>
         <div class = "form-group" >

@@ -11,9 +11,6 @@ Rails.application.routes.draw do
       get "search"
     end
   end
-  resources :bookings do
-    collection do 
-      get "confirm"
-    end
-  end
+  
+  resources :bookings 
 end

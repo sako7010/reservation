@@ -4,7 +4,6 @@
       <div class = "image" >
         <%= attachment_image_tag @room, :room_image,class:"show_img" %>
       </div>
-
       <div class = "show_list border-bottom py-3 d-flex flex-row">
         <div class = "user_info" >
           <%= attachment_image_tag @user,:profile_image, class:"profile-img mt-2 ml-2" %>
@@ -22,7 +21,7 @@
     <div class = "col-md-4 mt-4">
       <div class = "px-2 border">
         <p class = "text-center mt-2 field">部屋予約</p>
-        <%= form_with model: @booking, url: confirm_bookings_path, method: :get ,local: true do |f| %>
+        <%= form_with model: @booking, url: new_booking_path, method: :get ,local: true do |f| %>
           <div class = "form-group">
             <label>料金:</label>
             ¥<%= @room.price %> /日

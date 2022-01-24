@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_q
   def search
+    @user = current_user
     @results = @q.result
   end
 

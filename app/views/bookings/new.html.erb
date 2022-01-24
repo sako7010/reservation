@@ -1,23 +1,48 @@
-<div class = "booking-container">
-  <h2>予約内容確認</h2>
-  <div class = "booking_confirm">
-  
-
-  <%= form_with model: @booking do |f| %>
-    <div class = "room_booking">
-      <%= f.label :start_day, "開始日" %>
-      <%= f.text_field :start_day, :readonly => true %>
-    <br>
-      <%= f.label :end_day, "終了日" %>
-      <%= f.text_field :end_day, :readonly => true %>
-    <br>
-      <p>人数:<%= f.number_field :people, :readonly => true %>名</p>    
-      <p>合計料金:<%= f.number_field :total_price, :readonly => true %>円</p>
-      <%= f.submit "予約を確定する" %>
+<div class = "main-room mt-5 mb-5"> 
+  <div class = "container"> 
+    <div class  = "row"> 
+      <div class = "p-5 border col-6 mx-auto" >
+        <h3 class= "field mb-4" >予約内容確認</h3><hr>
+        <div class = "booking_confirm">
+          <div class = "form-group">
+            ¥<%= @booking.room.price %> /日
+          </div>
+          <div class = "form-group">
+            <label>チェックイン</label>
+            <p class = "form-control field mb-3"><%= @booking.start_day %></p>
+          </div>   
+          <div class = "form-group">
+            <label>チェックアウト</label>
+            <p class = "form-control field mb-3"><%= @booking.end_day %></p>
+          </div>   
+          <div class = "form-group">
+            <label>宿泊人数</label>
+            <p class = "form-control field mb-3"><%= @booking.people %>人</p>
+          </div>   
+          <div class = "form-group">
+            <label>宿泊日数</label>
+            <p class = "form-control field mb-3"><%= @booking.total_day %>日間</p>
+          </div>   
+          <div class = "form-group">
+            <label>合計金額</label>
+            <p class = "form-control field mb-3"><%= @booking.total_amount %>円</p>
+          </div>   
+          <%= form_with model: @booking do |f| %>
+            <%= f.hidden_field :start_day, value:@booking.start_day %>
+            <%= f.hidden_field :end_day, value:@booking.end_day  %>
+            <%= f.hidden_field :people, value:@booking.people %>
+            <%= f.hidden_field :room_id , value: @booking.room_id%>
+            <%= f.hidden_field :user_id, value: current_user.id  %>
+            <%= f.hidden_field :total_day, value:@booking.total_day %>
+            <%= f.hidden_field :total_amount, value:@booking.total_amount %>
+            <%= f.submit "予約を確定する", class:"btn btn-primary" %>
+            <%= link_to :back do %>
+              <button class = "btn btn-secondary">戻る</button>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-  <% end %>
-
-
+  </div>
 </div>
 
