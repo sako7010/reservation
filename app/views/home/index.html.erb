@@ -1,0 +1,45 @@
+<div class = "jumbotron">
+  <div class = "container" >
+    <div class = "row">
+      <div class="form-group top-text">
+        <h1>まだ知らない世界へ飛び立とう</h1>
+        <%= search_form_for @q, url: search_rooms_path do |f| %>
+          <%= f.label :address_cont, 'エリア' %>
+          <%= f.search_field :address_cont, class:"form-control mr-sm-2" %>
+          <br>
+          <%= f.submit '探す', class:"btn btn-primary form-control mr-sm-2"%>
+        <% end %>
+      </div>      
+    </div>
+  </div>  
+</div>
+
+<div class = "container">
+  <h1>おすすめのエリア</h1>
+  <div class = "row">
+    <div class="area_page col-lg-3 col-6">
+      <p class="text text-white">東京</p>
+      <%= link_to search_rooms_path(q: {address_cont: "東京都"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg', class:"osusume_img" %>
+      <% end %>
+    </div>
+    <div class="area_page col-lg-3 col-6">
+      <p class="text text-white">大阪</p>
+      <%= link_to search_rooms_path(q: {address_cont: "大阪府"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg', class:"osusume_img" %>
+      <% end %>
+      </div>
+    <div class="area_page col-lg-3 col-6">
+      <p class="text text-white">京都</p>
+      <%= link_to search_rooms_path(q: {address_cont: "京都府"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg', class:"osusume_img" %>
+      <% end %>
+      </div>
+    <div class="area_page col-lg-3 col-6">
+      <p class="text text-brack">札幌</p>
+      <%= link_to search_rooms_path(q: {address_cont: "札幌市"}) do %>
+        <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg', class:"osusume_img" %>
+      <% end %>
+    </div>
+  </div>    
+</div>

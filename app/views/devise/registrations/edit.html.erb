@@ -1,0 +1,57 @@
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "col-lg-2">
+      <p><%= render 'shared/user-link' %></p>
+    </div>
+
+    <div class = "col-lg-8 ">
+      <div class = "profile border my-3 px-5 ">
+        <h3 class= "field mb-4 mt-3" >アカウント編集</h3>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field mb-3">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field mb-3">
+            <%= f.label :password %> <i>(変更する場合のみ入力)</i><br />
+            <%= f.password_field :password, autocomplete: "new-password" , class:"form-control" %>
+            <% if @minimum_password_length %>
+              <br />
+              <em><%= @minimum_password_length %> 文字以上</em>
+            <% end %>
+          </div>
+
+          <div class="field mb-3">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control" %>
+          </div>
+
+          <div class="field mb-3">
+            <%= f.label :current_password %> <i>(変更する場合は現在のパスワードを入力)</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password" , class:"form-control" %>
+          </div>
+
+          <div class="actions mb-3">
+            <%= f.submit "更新" , class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+
+          <div class="actions mb-3">
+            <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "btn btn-danger btn-block" %>
+          </div>
+        
+        <%= link_to :back do %>
+          <div class= "btn-link">戻る</div>
+        <% end %>
+      </div>
+    </div> 
+  </div>
+</div>

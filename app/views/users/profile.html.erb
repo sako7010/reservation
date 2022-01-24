@@ -1,0 +1,49 @@
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "col-lg-2">
+      <p><%= render 'shared/user-link' %></p>
+    </div>
+
+    <div class = "col-lg-8">
+      <div class = "profile border my-3 px-5">
+        <h3 class= "field mb-4 mt-3" >プロフィール</h3><hr>
+
+        <%= form_with model: @user do |f| %>
+          <div class = "text-center border-bottom py-2">
+            <%= attachment_image_tag @user,:profile_image, class:"profile-img" %>
+          </div>
+
+          <div class = "row field-mb-3 ml-3 py-3">
+            <label class = "mb-3 col-md-3 font-weight-bold text-left">
+              <%= f.label :profile_image, "アイコン画像" %>
+            </label>
+            <p class = "mb-3 col-md-9"><%= f.attachment_field :profile_image %></p>
+          </div>
+
+          <div class = "row field-mb-3 ml-3 py-3">
+            <label class = "mb-3 col-md-3 font-weight-bold text-left">
+              <%= f.label :user_name, "ユーザー名" %>
+            </label>
+            <p class = "mb-3 col-md-8 "><%= f.text_field :user_name, placeholder: "ユーザー名" ,class: "form-control field mb-3"%></p>
+          </div>
+
+          <div class = "row field-mb-3 ml-3 py-3">
+            <label class = "mb-3 col-md-3 font-weight-bold text-left">
+              <%= f.label :profile, "自己紹介" %>
+            </label>
+            <p class = "mb-3 col-md-8"><%= f.text_area :profile, placeholder: "自己紹介を入力" ,class: "form-control field mb-3 " %></p>
+          </div>
+
+          <div class = "row field-mb-3 ml-3 py-3">
+            <label class = "mb-3 col-md-3 font-weight-bold text-left ">
+              <%= f.submit "更新" , class:"btn btn-primary"%>
+            </label>
+          
+          </div>
+          
+            
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

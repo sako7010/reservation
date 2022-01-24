@@ -1,0 +1,35 @@
+<div class = "main mt-5">
+  <div class = "container d-flex align-items-center justify-content-center">  
+    <div class = "mx-20 p-5 border" style= "with: 500px;" >
+      <h3 class= "field mb-4" >新しいアカウントを作成</h3>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field mb-3">
+          <%= f.text_field :user_name, autofocus: true, autocomplete: "email", placeholder: "名前を入力" , class:"form-control" %>
+        </div>
+
+        <div class="field mb-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class:"form-control"  %>
+        </div>
+
+        <div class="field mb-3">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class:"form-control"   %>
+        </div>
+
+        <div class="field mb-3">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class:"form-control"  %>
+        </div>
+
+        <div class="actions mb-3">
+          <%= f.submit "新しいアカウントを作成", class:"btn btn-primary btn-block" %>
+        </div>
+
+        <div class="lender_link mb-3 btn-block">
+          <%= render "devise/shared/links" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
